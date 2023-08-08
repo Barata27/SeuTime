@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Time</title>
+</head>
+<body>
+    <section>
+        <input type="number" name="qtdJogadores" id="qtdJogadores" placeholder="Quantidade de jogadores"><br><br>
+        <button onclick="jogadores()">Próximo!</button>
+        <div id="descjogadores"></div>
+        <div id="botaopx"></div>
+    </section>
+
+    <script>
+        function jogadores(){
+            var countjogadores = parseInt(document.getElementById("qtdJogadores").value);
+            var camposDiv = document.getElementById('descjogadores');
+            camposDiv.innerHTML = '';
+            var botaopx = document.getElementById('botaopx' );
+            botaopx.innerHTML = '';
+
+
+            for (var i = 1; i <= countjogadores; i++){
+                var textField = document.createElement('input');
+                textField.type = 'text';
+                textField.name = 'nomeJogador' + i;
+                textField.placeholder = 'Jogador ' + i;
+                
+                var rangeField = document.createElement('input');
+                rangeField.type = 'range';
+                rangeField.name = 'nivelJogador' + i;
+                rangeField.min = '1';
+                rangeField.max = '5';
+
+                var label = document.createElement('label');
+                label.innerHTML = 'Jogador ' + i + ':';
+
+                var botao = document.createElement('button');
+                botao.innerHTML = 'Proximo';
+                botao.id = 'sorteartimes';
+
+                camposDiv.appendChild(label);
+                camposDiv.appendChild(textField);
+                camposDiv.appendChild(rangeField);
+                camposDiv.appendChild(document.createElement('br'));
+            }
+
+            botaopx.appendChild(botao);
+
+            document.getElementById('sorteartimes').addEventListener('click', dividirTime);
+            
+            function dividirTime(){
+                alert('funcionou01');
+            }
+        }
+    </script>
+
+
+
+</body>
+</html>  
